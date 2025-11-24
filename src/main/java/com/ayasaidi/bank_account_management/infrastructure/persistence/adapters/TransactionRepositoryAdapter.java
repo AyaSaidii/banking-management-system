@@ -33,6 +33,14 @@ public class TransactionRepositoryAdapter implements TransactionRepositoryPort {
                 .map(TransactionMapper::toModel)
                 .collect(Collectors.toList());
     }
+
+
+    @Override
+    public List<Transaction> findByAccountId(Long accountId) {
+        List<TransactionDocument> docs = mongoRepo.findBySenderAccountIdOrReceiverAccountId(accountId, accountId);
+        return TransactionMapper.toDomainList(docs);
+    }
+
     @Override
     public List<Transaction> findBySenderId(Long senderId) {
         return null;

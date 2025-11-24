@@ -8,6 +8,7 @@ import java.util.List;
 public interface TransactionRepositoryPort {
     Transaction save(Transaction transaction);
     List<Transaction> findAllByUserId(Long userId);
+    List<Transaction> findByAccountId(Long accountId);
 
     List<Transaction> findBySenderId(Long senderId);
 

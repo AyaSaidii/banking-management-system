@@ -9,4 +9,5 @@ import java.util.List;
 @Repository
 public interface TransactionMongoRepository extends MongoRepository<TransactionDocument, String> {
     List<TransactionDocument> findByUserId(Long userId);
+    List<TransactionDocument> findBySenderAccountIdOrReceiverAccountId(Long senderAccountId, Long receiverAccountId);
 }
